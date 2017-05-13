@@ -4,6 +4,12 @@ import { hashHistory } from 'react-router'
 
 import RouteMap from './router/routeMap'
 import './static/css/common.less'
+
+// 测试 fetch 的功能
+//import { getData, postData } from './fetch/test.js'
+import { getData, postData } from './fetch/data.js'
+getData();
+postData();
 class Hello extends React.Component{
     render(){
         return (

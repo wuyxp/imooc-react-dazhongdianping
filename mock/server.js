@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const app = new Koa();
-
+const koaBody = require('koa-body')();
 const Router = require('koa-router')
 
 let home = new Router()
@@ -11,16 +11,19 @@ home.get('/', async ( ctx )=>{
 })
 // 子路由1
 home.get('/api/', async ( ctx )=>{
-    ctx.body = 'get/api/'
+    ctx.body = JSON.stringify({
+        "type": "get",
+        "data": "aaaaa"
+    })
 })
 
 // 子路由2
 let page = new Router()
-page.post('/', async ( ctx )=>{
+page.post('/' ,async ( ctx )=>{
     ctx.body = 'post/'
 })
-page.post('/api/', async ( ctx )=>{
-    ctx.body = 'post/api/'
+page.post('/api/', koaBody ,async ( ctx )=>{
+    ctx.body = JSON.stringify(ctx.request.body)
 })
 // 装载所有子路由
 let router = new Router()
