@@ -3,19 +3,34 @@ import React from "react"
 import { Provider } from 'react-redux'
 import configureStore from '../store/configureStore'
 
+import reducer from '../reducers/index'
+
 import UserInfo from './UserInfo'
 
-const store = configureStore()
+const data = [{
+    text: '吃饭',
+    done: true
+},{
+    text: '睡觉',
+    done: true
+},{
+    text: '学习',
+    done: false
+}]
+
+const store = configureStore({todo:data})
 
 class App extends React.Component{
     render(){
         return (
-            <div>
-                <Provider store = {store}>
-                    <UserInfo />
-                </Provider>
-                {this.props.children}
-            </div>
+            <Provider store = {store}>
+                <div>
+                        <UserInfo />
+                        <div>
+                            {this.props.children}
+                        </div>
+                </div>
+            </Provider>
         )
     }
 }

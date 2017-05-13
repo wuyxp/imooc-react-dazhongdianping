@@ -10,10 +10,10 @@ class UserInfo extends React.Component{
             <div>
                 <p>
                     ID：{this.props.userinfo.userid}
-                </p>       
+                </p>
                 <p>
                     城市：{this.props.userinfo.city}
-                </p>       
+                </p>
             </div>
         )
     }

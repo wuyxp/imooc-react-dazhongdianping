@@ -1,5 +1,4 @@
 import * as actionTypes from '../constants/userinfo'
-
 export function login(data){
     return {
         type: actionTypes.USERINFO_LOGIN,
@@ -10,6 +9,6 @@ export function login(data){
 export function updataCityName(data){
     return {
         type: actionTypes.UPDATE_CITYNAME,
-        data 
+        data
     }
 }
